@@ -1,48 +1,30 @@
-# Udagram Image Filtering Microservice
+# Course: Udacity - Cloud Developer
+### Section: Full-Stack Apps on AWS
+### Project: 'Udagram' Image-Filtering Microservice on AWS
 
-Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.
+## Student Developer: Roman Chuyan
+The focus of this project was engineering full-stack apps in the cloud, focusing on server-side development and deployment on AWS. It included the following areas:
+- Process engineering
+- Server-side development using NodeJS/Express
+- AWS deployment on Elastic Beanstalk
+See Concepts Practiced below.
 
-The project is split into three parts:
-1. [The Simple Frontend](https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-frontend)
-A basic Ionic client web application which consumes the RestAPI Backend. [Covered in the course]
-2. [The RestAPI Backend](https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-restapi), a Node-Express server which can be deployed to a cloud service. [Covered in the course]
-3. [The Image Filtering Microservice](https://github.com/udacity/cloud-developer/tree/master/course-02/project/image-filter-starter-code), the final project for the course. It is a Node-Express application which runs a simple script to process images. [Your assignment]
+## Functionality
+The app is an image-filtering microservice. I receives endpoint requests with a HTTP query including any piblic image URL, processes the image and returns the URL to the processed image.
+The endpoint URL for a running elastic beanstalk deployment (EB_URL) is: http://udacity-c2-project-dev.us-east-1.elasticbeanstalk.com
+An example request is: http://udacity-c2-project-dev.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://modelcapital.com/wp-content/uploads/2014/01/Light_heceta_head_Oregon_US.png
 
-## Tasks
+## Setup/Dependencies
+NodeJS environment v12 is utilized in this project. If not installed, install the dependencies by running `npm install` in the project root, which creates a `node_modules` directory.  
+If running locally, run the development server with `npm run dev` then access the endpoint at `http://localhost:8082/filteredimage?image_url={{URL}}`.
 
-### Setup Node Environment
+## Concepts Practiced
 
-You'll need to create a new node server. Open a new terminal within the project directory and run:
+### Process Engineering
+Demonstrate an understanding of a good cloud git process and ability to use TypesCript and NodeJs.
 
-1. Initialize a new project: `npm i`
-2. run the development server with `npm run dev`
+### Server Development
+Demonstrate the ability to develop using the NodeJS framework, understanding of RESTFUL design, and understanding of HTTP status codes.
 
-### Create a new endpoint in the server.ts file
-
-The starter code has a task for you to complete an endpoint in `./src/server.ts` which uses query parameter to download an image from a public URL, filter the image, and return the result.
-
-We've included a few helper functions to handle some of these concepts and we're importing it for you at the top of the `./src/server.ts`  file.
-
-```typescript
-import {filterImageFromURL, deleteLocalFiles} from './util/util';
-```
-
-### Deploying your system
-
-Follow the process described in the course to `eb init` a new application and `eb create` a new environment to deploy your image-filter service! Don't forget you can use `eb deploy` to push changes.
-
-## Stand Out (Optional)
-
-### Refactor the course RESTapi
-
-If you're feeling up to it, refactor the course RESTapi to make a request to your newly provisioned image server.
-
-### Authentication
-
-Prevent requests without valid authentication headers.
-> !!NOTE if you choose to submit this, make sure to add the token to the postman collection and export the postman collection file to your submission so we can review!
-
-### Custom Domain Name
-
-Add your own domain name and have it point to the running services (try adding a subdomain name to point to the processing server)
-> !NOTE: Domain names are not included in AWS’ free tier and will incur a cost.
+### Elastic Beanstalk Deployment
+Demonstrate the ability to create functional cloud deployments; use AWS Elastic Beanstalk’s CLI and Console Dashboard to deploy an environent and app.
